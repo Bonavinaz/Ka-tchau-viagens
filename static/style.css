@@ -183,3 +183,9 @@ body {
     object-fit: cover;
     margin-bottom: 15px;
 }
+
+.card-imagem img {
+    height: 270px;
+    object-fit: cover;
+    border-bottom: 2px solid #fd5151 !important;
+}
