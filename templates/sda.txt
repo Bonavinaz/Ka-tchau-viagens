@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ka-Tchau Viagens</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
     <div class="search-container">
       <a href="index.html" class="me-4">
-        <img src="imagens/Sem título.png" style="height:90px; width: auto;" alt="Logo Ka-Tchau Viagens" class="logo">
+        <img src="{{ url_for('static', filename='imagens/Sem título.png') }}" style="height:90px; width: auto;" alt="Logo Ka-Tchau Viagens" class="logo">
       </a>
     <div class="search-box">
         <div class="input-group">
@@ -40,13 +40,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="imagens/argo-removebg-preview.png" class="d-block w-100" alt="Fiat Argo">
+      <img src="{{ url_for('static', filename='imagens/argo-removebg-preview.png') }}" class="d-block w-100" alt="Fiat Argo">
     </div>
     <div class="carousel-item">
-      <img src="imagens/w-removebg-preview.png" class="d-block w-100" alt="Chevrolet Tracker">
+      <img src="{{ url_for('static', filename='imagens/w-removebg-preview.png') }}" class="d-block w-100" alt="Chevrolet Tracker">
     </div>
     <div class="carousel-item">
-      <img src="imagens/imagem_2026-04-15_123426422-removebg-preview.png" class="d-block w-100" alt="Ford Focus ST-Line X">
+      <img src="{{ url_for('static', filename='imagens/imagem_2026-04-15_123426422-removebg-preview.png') }}" class="d-block w-100" alt="Ford Focus ST-Line X">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselPrincipal" data-bs-slide="prev">
@@ -62,7 +62,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 my-2 distancia-cards">
       <div class="col">
     <div class="card h-100 custom-card">
-      <img src="imagens/AE-Fiat-Argo-Drive-10-8-scaled-e1758229233410.jpeg" class="card-img-top" alt="Fiat Argo">
+      <img src="{{ url_for('static', filename='imagens/}AE-Fiat-Argo-Drive-10-8-scaled-e1758229233410.jpeg') }" class="card-img-top" alt="Fiat Argo">
       <div class="card-body">
         <h5 class="card-title">Fiat Argo 2025</h5>
         <p class="card-text">O Fiat Argo é um hatchback compacto que se destaca pela combinação de economia,
@@ -75,7 +75,7 @@
 
     <div class="col">
     <div class="card h-100 custom-card">
-      <img src="imagens/c7-chevrolet-tracker-2-jpg.jpg" class="card-img-top" alt="Chevrolet Tracker">
+      <img src="{{ url_for('static', filename='imagens/c7-chevrolet-tracker-2-jpg.jpg') }}" class="card-img-top" alt="Chevrolet Tracker">
       <div class="card-body">
         <h5 class="card-title">Chevrolet Tracker 2021</h5>
         <p class="card-text">A Tracker é um SUV compacto moderno e popular no mercado brasileiro.
@@ -88,7 +88,7 @@
   
   <div class="col">
     <div class="card h-100 custom-card">
-      <img src="imagens/maxresdefault.jpg" class="card-img-top" alt="Ford Focus ST-Line X">
+      <img src="{{ url_for('static', filename='imagens/maxresdefault.jpg') }}" class="card-img-top" alt="Ford Focus ST-Line X">
       <div class="card-body">
         <h5 class="card-title">Ford Focus ST-Line X 2024</h5>
         <p class="card-text">O Ford Focus ST-Line é uma versão do hatch médio da Ford que foca em um visual e
@@ -109,25 +109,25 @@
   </div>
   <div class="carousel-inner custom-carousel">
     <div class="carousel-item active">
-      <img src="imagens/sp.png" class="d-block w-100" alt="São Paulo">
+      <img src="{{ url_for('static', filename='imagens/sp.png') }}" class="d-block w-100" alt="São Paulo">
       <div class="carousel-caption d-none d-md-block">
         <h5>São Paulo</h5>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="imagens/Shopping_Granja_Vianna.jpg" class="d-block w-100" alt="Granja Viana">
+      <img src="{{ url_for('static', filename='imagens/Shopping_Granja_Vianna.jpg') }}" class="d-block w-100" alt="Granja Viana">
       <div class="carousel-caption d-none d-md-block">
         <h5>Granja Viana</h5>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="imagens/osasco-lilas.jpg" class="d-block w-100" alt="Osasco">
+      <img src="{{ url_for('static', filename='imagens/osasco-lilas.jpg') }}" class="d-block w-100" alt="Osasco">
       <div class="carousel-caption d-none d-md-block">
         <h5>Osasco</h5>
       </div>
     </div>
         <div class="carousel-item">
-      <img src="imagens/alphavile.jpg" class="d-block w-100" alt="Alphaville">
+      <img src="{{ url_for('static', filename='imagens/alphavile.jpg') }}" class="d-block w-100" alt="Alphaville">
       <div class="carousel-caption d-none d-md-block">
         <h5>Alphaville</h5>
       </div>
