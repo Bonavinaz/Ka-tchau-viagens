@@ -86,12 +86,20 @@ body {
 /* aqui e o estilo do carrosel (nao e aquela serie bosta) */
 
 #carouselPrincipal {
-    background-image: url('imagens/Capturar.PNG');
+    background-image: url('imagens/fundo-carousel.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     align-items: center;
+}
+
+#carouselPrincipal .katchau {
+    position: absolute;
+    width: 100px;
+    right: 10px;
+    bottom: 10px;
+    transform: scaleX(-1);
 }
 
 .carousel-item {
