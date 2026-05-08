@@ -170,7 +170,7 @@ body {
         margin-bottom: 20px;
     }
 }
-
+/*Aqui foi onde passei horas pra adicionar umas coisa simples do carrosel das cidades*/
 #carousel {
     margin-top: 20px;
     align-items: center;
@@ -182,4 +182,47 @@ body {
     border-radius: 15px !important;
     object-fit: cover;
     margin-bottom: 15px;
+}
+
+/*Aqui e pra deixar os estilos dos botoes do cadastro vermelhinho e mais harmonioso pro projeto*/
+
+.form-select:focus, .form-check-input:focus {
+    border-color: #e32636 !important;
+    box-shadow: 0 0 0 0.2rem rgba(227, 38, 54, 0.25) !important;
+}
+
+.form-check-input:checked {
+    border-color: #dc3545 !important;
+}
+
+body.login-page {
+    background-image: url('imagens/estampa.jfif');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body.cadastro-page {
+    background-image: url('imagens/estampa.jfif');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.filtro-carros {
+    background-color: #121212 !important;
+    color: #fff !important;
+    border: 2px solid #fd5151 !important;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.container-logo {
+    padding: 20px;
+    background-color: var(--black);
+    display: flex;
+    justify-content: center;
 }
