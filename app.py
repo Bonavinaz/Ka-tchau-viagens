@@ -15,5 +15,16 @@ def index():
     conn.close()
     return render_template("index.html", carros=carros)
 
+@app.route("/cadastro")
+def cadastro():
+    return render_template("cadastro.html")
+
+@app.route("/catalogo")
+def catalogo():
+    conn = get_db()
+    carros = conn.execute("SELECT * FROM carros").fetchall()
+    conn.close()
+    return render_template("catalogo.html", carros=carros)
+
 if __name__ == "__main__":
     app.run(debug=True)
