@@ -1,0 +1,245 @@
+/* aqui e pra estilizar o corpo da pagina */
+
+body {
+    background-color: #121212;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 100% !important;
+}
+
+/* pra deixar as letras em branco */
+
+.input-group input {
+    color: white !important;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.input-group label {
+    color: #fff;
+    font-size:12px;
+}
+
+/* pra criar os menu no top da pagina (nao e a lane) */
+
+:root {
+    --primary-red: #e32636;
+    --black: #000;
+    --gray: #f4f4f4;
+}
+
+.search-container {
+    padding: 20px;
+    background-color: var(--primary-red);
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    background-color: var(--black);
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 1000px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.input-group label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+}
+
+.btn-search {
+    background-color: var(--primary-red);
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-search:hover {
+    background-color: #e32636;
+    transform: scale(1.05);
+}
+
+/* aqui e o estilo do carrosel (nao e aquela serie bosta) */
+
+#carouselPrincipal {
+    background-image: url('imagens/fundo-carousel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    align-items: center;
+}
+
+#carouselPrincipal .katchau {
+    position: absolute;
+    width: 100px;
+    right: 10px;
+    bottom: 10px;
+    transform: scaleX(-1);
+}
+
+.carousel-item {
+    background: transparent !important;
+}
+
+.carousel-item img {
+    height: 600px;
+    object-fit: contain;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
+}
+
+.carousel-control-prev { left: 0; }
+.carousel-control-next { right: 0; }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(0);
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
+}
+
+/* aqui e o estilo dos cards que falam dos carros */
+.card.custom-card {
+    background-color: #121212 !important;
+    color: #fff !important;
+    border: 2px solid #fd5151 !important;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100% !important;
+    max-width: 100%;
+}
+
+.col {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.distancia-cards {
+    margin-top: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.customo-card {
+    background-color: #121212 !important;
+    color: #fff !important;
+    border: 2px solid #fd5151 !important;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.customo-card .col-md-6 {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+
+.border-end {
+    border-right: 1px solid #fd5151 !important;
+}
+
+@media (max-width: 768px) {
+    .border-end {
+        border-right:none !important;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+#carousel {
+    margin-top: 20px;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.custom-carousel img{
+    width: 100%;
+    border-radius: 15px !important;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.card-imagem img {
+    height: 270px;
+    object-fit: cover;
+    border-bottom: 2px solid #fd5151 !important;
+}
+
+/*Login*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+.modal form {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    width: 80%;
+    color: black;
+}
+
+.modal form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal form button {
+    border: none;
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  cursor: pointer;
+}
