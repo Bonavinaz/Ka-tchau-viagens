@@ -15,22 +15,48 @@
       </a>
       </div>
     <div class="search-box">
-        <div class="input-group">
-            <label>Onde você quer retirar o carro?</label>
-            <input type="text" placeholder="Digite a cidade">
-        </div>
+        <div class="mb-3">
+            <label class="form-label text-muted small fw-bold">Selecione o local de retirada</label>
+            <select class="form-select bg-secondary text-white border-0" id="buscaCidade" required>
+              <option value="" selected disabled>Escolha uma central...</option>
+              <option value="São Paulo">São Paulo</option>
+              <option value="Osasco">Osasco</option>
+              <option value="Granja Viana">Granja Viana</option>
+              <option value="Alphaville">Alphaville</option>
+            </select>
+          </div>
 
         <div class="input-group">
             <label>Data</label>
             <input type="date">
         </div>
 
-        <div class="input-group">
-            <label>Hora</label>
-            <input type="time">
-        </div>
+        <div class="mb-3">
+            <label class="form-label text-muted small fw-bold">Selecione o Modelo Desejado</label>
+            <select class="form-select bg-secondary text-white border-0" id="buscaModelo" required>
+              <option value="" selected disabled>Escolha um veículo da frota...</option>
+              <option value="Fiat Argo 2025">Fiat Argo 2025</option>
+              <option value="Ford Fiesta ST 2023">Ford Fiesta ST 2023</option>
+              <option value="Golf MK6 2010">Golf MK6 2010</option>
+              <option value="Chevrolet Tracker">Chevrolet Tracker</option>
+              <option value="Land Rover Defender 110 2023">Land Rover Defender 110 2023</option>
+              <option value="BMW X5 M 2011">BMW X5 M 2011</option>
+              <option value="Ford F-450 2021">Ford F-450 2021</option>
+              <option value="Dodge Power Wagon 2017">Dodge Power Wagon 2017</option>
+              <option value="Ford F-150 Raptor 2017">Ford F-150 Raptor 2017</option>
+              <option value="Ford Focus ST-Line X 2021">Ford Focus ST-Line X 2021</option>
+              <option value="Nissan Skyline R34 GT-R 2017">Nissan Skyline R34 GT-R 2017</option>
+              <option value="Audi RS6 Avant 2021">Audi RS6 Avant 2021</option>
+              <option value="Bentley Continental Supersports 2017">Bentley Continental Supersports 2017</option>
+              <option value="Cadillac CTS-V 2017">Cadillac CTS-V 2017</option>
+              <option value="Mercedes-Benz E 63 AMG 2013">Mercedes-Benz E 63 AMG 2013</option>
+              <option value="Ferrari SF90 Stradale">Ferrari SF90 Stradale</option>
+              <option value="Lykan Hypersport 2014">Lykan Hypersport 2014</option>
+              <option value="Lamborghini Revuelto 2023">Lamborghini Revuelto 2023</option>
+            </select>
+          </div>
 
-        <button class="btn-search">Pesquisar</button>
+        <button type="button" class="btn-search" onclick="dispararAlertaAgendamento()">Agendar</button>
     </div>
     <div class="d-flex justify-content-center mt-4 ms-5">
   <a href="cadastro.html">
@@ -83,7 +109,7 @@
         <p class="card-text">O Fiat Argo é um hatchback compacto que se destaca pela combinação de economia,
           design moderno e robustez,
           sendo uma opção popular para uso urbano e para motoristas de aplicativos.</p>
-        <a href="#" class="btn btn-danger">Quero alugar</a>
+        <button class="btn btn-danger btn-alugar" data-bs-toggle="modal" data-bs-target="#modalAluguel">Quero alugar</button>
       </div>
     </div>
   </div>
@@ -96,7 +122,7 @@
         <p class="card-text">A Tracker é um SUV compacto moderno e popular no mercado brasileiro.
           Ele é conhecido por combinar estilo, tecnologia e conforto, sendo uma opção para quem busca um carro
           versátil para o dia a dia e viagens.</p>
-        <a href="#" class="btn btn-danger">Quero alugar</a>
+        <button class="btn btn-danger btn-alugar" data-bs-toggle="modal" data-bs-target="#modalAluguel">Quero alugar</button>
       </div>
     </div>
   </div>
@@ -109,7 +135,7 @@
         <p class="card-text">O Ford Focus ST-Line é uma versão do hatch médio da Ford que foca em um visual e
           comportamento mais esportivo,
           sem necessariamente ter o motor de altíssima performance da versão ST "pura".</p>
-        <a href="#" class="btn btn-danger">Quero alugar</a>
+        <button class="btn btn-danger btn-alugar" data-bs-toggle="modal" data-bs-target="#modalAluguel">Quero alugar</button>
       </div>
     </div>
   </div>
@@ -167,10 +193,9 @@
     <div class="row">
     <div class="col-md-6 row border-end">
   <div class="card-body">
-    <h5 class="card-title">Sobre nossos serviços</h5>
-    <p class="card-text">Oferecemos um serviço de aluguel de veículos de alta qualidade,
-      com uma frota diversificada e preços competitivos.</p>
-    <a href="#" class="link-danger">Saiba mais</a>
+    <h5 class="card-title">Termos de uso</h5>
+    <p class="card-text">Ao utilizar nossos serviços, você concorda com os termos e condições estabelecidos.</p>
+    <a href="termos.html" class="link-danger">Saiba mais</a>
   </div>
 </div>
 <div class="col-md-6 p-4 mx-auto">
@@ -178,12 +203,117 @@
       <h5 class="card-title">Fale conosco</h5>
       <p class="card-text">Contate-nos caso deseje obter mais informações ou o esclarecimento de dúvidas
         sobre nossos serviços.</p>
-      <a href="#" class="link-danger">Saiba mais</a>
+      <a href="#" class="link-danger btn-contato">Saiba mais</a>
     </div>
     </div>
   </div>
     </div>
   </div>
+
+  <div class="modal fade" id="modalAluguel" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white border-secondary" style="border-radius: 12px;">
+      
+      <div class="modal-header border-bottom border-secondary">
+        <h5 class="modal-title text-uppercase fw-bold" style="color: #ff4d4d; letter-spacing: 1px;">Solicitar Aluguel</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        <form id="formAluguel">
+          
+          <div class="mb-3">
+            <label class="form-label text-muted small fw-bold">1. Escolha a Central de Retirada</label>
+            <select class="form-select bg-secondary text-white border-0" id="selectUnidade" required>
+              <option value="" selected disabled>Selecione uma unidade...</option>
+              <option value="São Paulo">São Paulo</option>
+              <option value="Osasco">Granja Viana</option>
+              <option value="Granja Viana">Osasco</option>
+              <option value="Alphaville">Alphaville</option>
+            </select>
+          </div>
+          
+          <div class="mb-4">
+            <label class="form-label text-muted small fw-bold">2. Escolha a Data de Retirada</label>
+            <input type="date" class="form-control bg-secondary text-white border-0" id="inputData" required>
+          </div>
+
+          <button type="submit" class="btn btn-danger w-100 fw-bold py-2" style="border-radius: 8px;">Confirmar Agendamento</button>
+        
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const botaoContato = document.querySelector('.btn-contato');
+
+  if (botaoContato) {
+    botaoContato.addEventListener('click', function(event) {
+      event.preventDefault(); 
+
+      alert(
+        `📞 Central de Atendimento - Ka-Tchau Viagens 📞\n\n` +
+        `Precisa de suporte, quer tirar dúvidas ou fazer uma reserva especial?\n` +
+        `Nossa equipe está pronta para te atender!\n\n` +
+        `📧 E-mail: contato@katchauviagens.com.br\n` +
+        `📱 WhatsApp / Tel: (11) 99595-2230\n\n` +
+        `🕒 Horário de funcionamento: Seg a Sex, das 07h às 21h.\n\n` +
+        `Acelere sua jornada conosco! 🏎️💨`
+      );
+    });
+  }
+</script>
+<script>
+  document.getElementById('formAluguel').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const unidade = document.getElementById('selectUnidade').value;
+    const dataRaw = document.getElementById('inputData').value;
+    
+    const dataFormatada = dataRaw.split('-').reverse().join('/');
+
+    const modalElement = document.getElementById('modalAluguel');
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    modal.hide();
+
+    alert(
+      `✨ Agendamento Pré-Confirmado! ✨\n\n` +
+      `📍 Local: Central ${unidade}\n` +
+      `📅 Data: ${dataFormatada}\n\n` +
+      `Boa jornada com a Ka-Tchau Viagens!`
+    );
+  });
+</script>
+
+<script>
+function dispararAlertaAgendamento() {
+    // 1. Captura os seletores exatamente pelos IDs corretos da sua barra
+    const seletorCidade = document.getElementById('buscaCidade');
+    const seletorModelo = document.getElementById('buscaModelo');
+
+    // 2. Pega o texto visível selecionado dentro deles (evita pegar o "value" vazio)
+    const cidade = seletorCidade && seletorCidade.selectedIndex !== -1 ? seletorCidade.options[seletorCidade.selectedIndex].text : "";
+    const modelo = seletorModelo && seletorModelo.selectedIndex !== -1 ? seletorModelo.options[seletorModelo.selectedIndex].text : "";
+
+    // 3. Validação: se estiver na opção padrão ("Escolha..."), barra o agendamento
+    if (!cidade || cidade.includes("Escolha") || !modelo || modelo.includes("Escolha")) {
+        alert("📍 Opa! Por favor, selecione uma Central de Retirada e um Modelo de Veículo válidos antes de agendar.");
+        return;
+    }
+
+    // 4. Dispara o alert limpo e perfeito com o carro que você escolheu!
+    alert(
+      `✨ Agendamento Pré-Confirmado! ✨\n\n` +
+      `🚗 Veículo Escolhido: ${modelo}\n` +
+      `📍 Retirada na Central: ${cidade}\n\n` +
+      `Sua reserva foi registrada com sucesso!\n` +
+      `A Ka-Tchau Viagens te deseja uma excelente jornada! 🏎️💨`
+    );
+}
+</script>
 </body>
 </html>
