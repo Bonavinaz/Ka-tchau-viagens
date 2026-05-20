@@ -8,22 +8,28 @@
       </div>
   </div>
     <div class="px-3">
-        <select class="filtro-carros form-select mx-auto" aria-label="Default select example">
-        <option selected>Filtre os Carros</option>
-        <option value="1">Populares</option>
-        <option value="2">SUV</option>
-        <option value="3">Caminhonetes</option>
-        <option value="4">Esportivos</option>
-        <option value="5">Luxo</option>
-        <option value="6">Superesportivos de Luxo</option>
-      </select>
+      <form action="/catalogo" method="GET">
+        <select class="filtro-carros form-select mx-auto" name="categoria" onchange="this.form.submit()">
+          <option selected>Filtre os Carros</option>
+          <option value="Populares">Populares</option>
+          <option value="SUV">SUV</option>
+          <option value="Caminhonetes">Caminhonetes</option>
+          <option value="Esportivos">Esportivos</option>
+          <option value="Luxo">Luxo</option>
+          <option value="Superesportivos de Luxo">Superesportivos de Luxo</option>
+        </select>
+      </form>
     </div>
   
   <section class="categoria">
     <div style="display: flex; justify-content: flex-start;">
-      <h2 class="ms-3 mt-4">Todos os carros</h2>
+      {% if carros %}
+        <h2 class="ms-3 mt-4">Todos os carros</h2>
+      {% else %}
+        <h2 class="ms-3 mt-4">Nenhum carro encontrado...</h2>
+      {% endif %}
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 my-2 distancia-cards">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 mb-5 distancia-cards">
     {% for carro in carros %}
       <div class="col">
           <div class="card h-100 custom-card">

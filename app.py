@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sqlite3
 
 app = Flask(__name__)
@@ -22,7 +22,24 @@ def cadastro():
 @app.route("/catalogo")
 def catalogo():
     conn = get_db()
-    carros = conn.execute("SELECT * FROM carros").fetchall()
+    q = request.args.get("q", "")
+    categoria = request.args.get("categoria", "")
+    
+    if q and categoria:
+        carros = conn.execute(
+            "SELECT * FROM carros WHERE marca LIKE ? AND categoria LIKE ?", (f"%{q}%", f"%{categoria}%")
+        ).fetchall()
+    elif q:
+        carros = conn.execute(
+            "SELECT * FROM carros WHERE marca LIKE ?", (f"%{q}%",)
+        ).fetchall()
+    elif categoria:
+        carros = conn.execute(
+            "SELECT * FROM carros WHERE categoria LIKE ?", (f"%{categoria}%",)
+        ).fetchall()
+    else:
+        carros = conn.execute("SELECT * FROM carros").fetchall()
+    
     conn.close()
     return render_template("catalogo.html", carros=carros)
 

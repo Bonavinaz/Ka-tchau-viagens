@@ -26,46 +26,6 @@
       <input type="text" class="form-control border-danger" id="inputAddress" placeholder="Rua">
     </div>
     <div class="col-12">
-      <label for="inputAddress2" class="form-label border-danger">Complemento</label>
-      <input type="text" class="form-control border-danger" id="inputAddress2" placeholder="Número, apartamento, etc.">
-    </div>
-    <div class="col-md-6">
-      <label for="inputCity" class="form-label border-danger">Cidade</label>
-      <input type="text" class="form-control border-danger" id="inputCity">
-    </div>
-    <div class="col-md-4">
-      <label for="inputState" class="form-label">Estado</label>
-      <select id="inputState" class="form-select border-danger">
-        <option selected>Escolher...</option>
-        <option">Acre (AC)</option>
-        <option>Alagoas (AL)</option>
-        <option>Amazonas (AM)</option>
-        <option>Anderson (AP)</option>
-        <option>Maranhão (MA)</option>
-        <option>Mato Grosso (MT)</option>
-        <option>Mato Grosso do Sul (MS)</option>
-        <option>Minas Gerais (MG)</option>
-        <option>Pará (PA)</option>
-        <option>Paraíba (PB)</option>
-        <option>Paraná (PR)</option>
-        <option>Pernambuco (PE)</option>
-        <option>Piauí (PI)</option>
-        <option>Rio de Janeiro (RJ)</option>
-        <option>Rio Grande do Norte (RN)</option>
-        <option>Rio Grande do Sul (RS)</option>
-        <option>Rondônia (RO)</option>
-        <option>Roraima (RR)</option>
-        <option>Santa Catarina (SC)</option>
-        <option>São Paulo (SP)</option>
-        <option>Sergipe (SE)</option>
-        <option>Tocantins (TO)</option>
-      </select>
-    </div>
-    <div class="col-md-2">
-      <label for="inputZip" class="form-label border-danger">CEP</label>
-      <input type="text" class="form-control border-danger" id="inputZip">
-    </div>
-    <div class="col-12">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="gridCheck">
         <label class="form-check-label" for="gridCheck">
@@ -79,6 +39,6 @@
   </form>
   </div>
   </div>
+  <img class="katchau" src="{{ url_for('static', filename='imagens/katchau.png') }}" alt="">
   </section>
-    <img class="katchau" src="{{ url_for('static', filename='imagens/katchau.png') }}" alt="">
 {% endblock %}

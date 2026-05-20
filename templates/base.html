@@ -14,8 +14,8 @@
       <!-- login -->
       <div class="d-flex">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <form class="mb-0 d-flex form-search" action="action_page.php">
-          <input class="form-control" type="text" placeholder="Pesquisar..." name="search">
+        <form action="/catalogo" method="GET" class="mb-0 d-flex form-search">
+          <input class="form-control" type="text" placeholder="Pesquisar..." name="q">
           <button class="btn me-3" type="submit"><i class="fa fa-search"></i></button>
         </form>
         <button class="btn-login btn btn-outline-dark" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
