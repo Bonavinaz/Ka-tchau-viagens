@@ -11,21 +11,30 @@
       <a href="/" class="me-4">
         <img src="{{ url_for('static', filename='imagens/Sem título.png') }}" style="height:90px; width: auto;" alt="Logo Ka-Tchau Viagens" class="logo">
       </a>
-      <!-- login -->
       <div class="d-flex">
+        <!-- barra de pesquisa -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <form action="/catalogo" method="GET" class="mb-0 d-flex form-search">
           <input class="form-control" type="text" placeholder="Pesquisar..." name="q">
           <button class="btn me-3" type="submit"><i class="fa fa-search"></i></button>
         </form>
+        <!-- login -->
+        <!-- logado -->
+        {% if session.get('usuario_id') %}
+          <h2>logado</h2>
+        <!-- não logado -->
+        {% else %}
         <button class="btn-login btn btn-outline-dark" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
         <div id="id01" class="modal"> 
-          <form class="bg-dark p-5 rounded-4 text-white" action="/action_page.php" method="post">
+          <form class="bg-dark p-5 rounded-4 text-white" action="/login" method="POST">
             <div>
-              <label class="pb-3" for="nome"><b>Usuario</b></label>
-              <input class="mb-3 form-control border-danger" type="text" name="nome" required>
-              <label class="pb-3" for="senha"><b>Senha</b></label>
-              <input class="mb-3 form-control border-danger" type="password" name="senha" required>
+              <label class="pb-3"><b>Usuario ou Email</b></label>
+              <input class="mb-3 form-control border-danger" type="text" name="login">
+              <label class="pb-3"><b>Senha</b></label>
+              <input class="mb-3 form-control border-danger" type="password" name="senha">
+              {% if request.args.get('login_erro') %}
+                <p class="text-danger mt-0 mb-3 fw-bold">Usuário ou senha incorretos!</p>
+              {% endif %}
             </div>
             <div class="flex-row justify-content-between">
               <div class="flex-row">
@@ -36,12 +45,22 @@
           </form>
         </div>
         <script>
+          // Abre o modal ce tiver erro no lgin
+          window.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('login_erro')) {
+              document.getElementById('id01').style.display = 'block';
+            }
+          });
+
+          // Abre o modal
           window.onclick = function(event) {
             if (event.target.id === 'id01') {
               event.target.style.display = "none";
             }
           }
         </script>
+        {% endif %}
       </div>
     </header>
 

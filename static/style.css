@@ -1,34 +1,20 @@
+:root {
+    --primary-red: #e32636;
+    --black: #000;
+    --gray: #f4f4f4;
+}
+ 
 /* aqui e pra estilizar o corpo da pagina */
-
+ 
 body {
     background-color: #121212;
     color: #fff;
     transition: background-color 0.3s, color 0.3s;
     font-size: 100% !important;
 }
-
-/* pra deixar as letras em branco */
-
-.input-group input {
-    color: white !important;
-    border: none;
-    outline: none;
-    background: transparent;
-}
-
-.input-group label {
-    color: #fff;
-    font-size:12px;
-}
-
+ 
 /* pra criar os menu no top da pagina (nao e a lane) */
-
-:root {
-    --primary-red: #e32636;
-    --black: #000;
-    --gray: #f4f4f4;
-}
-
+ 
 header {
     padding: 20px;
     background-color: var(--primary-red);
@@ -36,9 +22,23 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-
+ 
+/* pra deixar as letras em branco */
+ 
+.input-group input {
+    color: white !important;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+ 
+.input-group label {
+    color: #fff;
+    font-size: 12px;
+}
+ 
 /* ----- por enquanto não usando ----- 
-
+ 
 .search-box {
     background-color: var(--black);
     padding: 15px 30px;
@@ -50,26 +50,26 @@ header {
     width: 90%;
     max-width: 1000px;
 }
-
+ 
 .input-group {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
-
+ 
 .input-group label {
     font-size: 12px;
     color: #666;
     margin-bottom: 5px;
 }
-
+ 
 .input-group input {
     border: none;
     outline: none;
     font-size: 16px;
     background: transparent;
 }
-
+ 
 .btn-search {
     background-color: var(--primary-red);
     color: black;
@@ -80,16 +80,16 @@ header {
     font-weight: bold;
     transition: 0.3s;
 }
-
+ 
 .btn-search:hover {
     background-color: #e32636;
     transform: scale(1.05);
 }
-
+ 
 */
-
+ 
 /* aqui e o estilo do carrosel (nao e aquela serie bosta) */
-
+ 
 #carouselPrincipal {
     background-image: url('imagens/fundo-carousel.jpg');
     background-size: cover;
@@ -97,7 +97,7 @@ header {
     background-repeat: no-repeat;
     align-items: center;
 }
-
+ 
 .katchau {
     position: absolute;
     width: 100px;
@@ -106,16 +106,16 @@ header {
     transform: scaleX(-1);
     padding-bottom: 20px;
 }
-
+ 
 .carousel-item {
     background: transparent !important;
 }
-
+ 
 .carousel-item img {
     height: 600px;
     object-fit: contain;
 }
-
+ 
 .carousel-control-prev,
 .carousel-control-next {
     width: 15%;
@@ -123,17 +123,17 @@ header {
     transform: translateY(-50%);
     height: auto;
 }
-
+ 
 .carousel-control-prev { left: 0; }
 .carousel-control-next { right: 0; }
-
+ 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    filter: invert(0);
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
 }
-
+ 
 /* aqui e o estilo dos cards que falam dos carros */
+ 
 .card.custom-card {
     background-color: #121212 !important;
     color: #fff !important;
@@ -143,12 +143,12 @@ header {
     width: 100% !important;
     max-width: 100%;
 }
-
+ 
 .col {
     padding-left: 16px;
     padding-right: 16px;
 }
-
+ 
 .distancia-cards {
     margin-top: 100%;
     margin-left: 0;
@@ -156,7 +156,7 @@ header {
     width: 100%;
     overflow-x: hidden;
 }
-
+ 
 .customo-card {
     background-color: #121212 !important;
     color: #fff !important;
@@ -164,68 +164,70 @@ header {
     border-radius: 10px;
     overflow: hidden;
 }
-
+ 
 .customo-card .col-md-6 {
     padding-left: 40px !important;
     padding-right: 40px !important;
     padding-top: 30px !important;
     padding-bottom: 30px !important;
 }
-
+ 
 .border-end {
     border-right: 1px solid #fd5151 !important;
 }
-
+ 
 @media (max-width: 768px) {
     .border-end {
-        border-right:none !important;
+        border-right: none !important;
         border-bottom: 1px solid #fff;
         padding-bottom: 20px;
         margin-bottom: 20px;
     }
 }
-
-/*Aqui foi onde passei horas pra adicionar umas coisa simples do carrosel das cidades*/
+ 
+/* Aqui foi onde passei horas pra adicionar umas coisa simples do carrosel das cidades */
+ 
 #carousel {
     margin-top: 20px;
     align-items: center;
     border-radius: 15px;
 }
-
-.custom-carousel img{
+ 
+.custom-carousel img {
     width: 100%;
     border-radius: 15px !important;
     object-fit: cover;
     margin-bottom: 15px;
 }
-
+ 
 .card-imagem img {
     height: 270px;
     object-fit: cover;
     border-bottom: 2px solid #fd5151 !important;
 }
-
-/*Login*/
-
+ 
+/* Login */
+ 
 .form-search input {
     border-radius: 0.375rem 0 0 0.375rem;
-    border-color: white;
     border: 1px solid white;
     background-color: #212529;
-    border-right: 0px;
-    -webkit-tap-highlight-color: transparent; 
+    border-right: 0;
+    -webkit-tap-highlight-color: transparent;
 }
-
-.form-search input:focus, input:active {
+ 
+.form-search input:focus,
+.form-search input:active {
     outline: none;
     -webkit-tap-highlight-color: transparent;
-    box-shadow: none; /* Remove sombras que alguns navegadores adicionam */
+    box-shadow: none;
     border-color: white;
 }
+ 
 .form-search input::placeholder {
     color: white;
 }
-
+ 
 .form-search button {
     border-radius: 0 0.375rem 0.375rem 0;
     border-left: 0;
@@ -233,78 +235,78 @@ header {
     color: white;
     -webkit-tap-highlight-color: transparent;
 }
-
+ 
 .form-search button:hover {
     background: white;
     color: #212529;
 }
-
+ 
 .btn-login {
-    color:white;
+    color: white;
     font-weight: bold;
     border: 1px solid white;
 }
-
+ 
 .btn-login:hover {
     background-color: white;
     color: #212529;
     border-color: transparent;
 }
-
+ 
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-  padding-top: 60px;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
 }
-
+ 
 .modal form {
     margin: 5% auto 15% auto;
     width: 50%;
     color: black;
 }
-
+ 
 .modal form div {
     display: flex;
     flex-direction: column;
 }
-
+ 
 .modal form button {
     border: none;
 }
-
+ 
 .close {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
 }
-
+ 
 .close:hover,
 .close:focus {
-  cursor: pointer;
+    cursor: pointer;
 }
-
-/*Aqui e pra deixar os estilos dos botoes do cadastro vermelhinho e mais harmonioso pro projeto*/
-
-.form-select:focus, .form-check-input:focus {
+ 
+/* Aqui e pra deixar os estilos dos botoes do cadastro vermelhinho e mais harmonioso pro projeto */
+ 
+.form-select:focus,
+.form-check-input:focus {
     border-color: #e32636 !important;
     box-shadow: 0 0 0 0.2rem rgba(227, 38, 54, 0.25) !important;
 }
-
+ 
 .form-check-input:checked {
     border-color: #dc3545 !important;
 }
-
+ 
 .cadastro-background {
     background-image: url('imagens/fundo-carousel.jpg');
     background-position: center;
@@ -312,7 +314,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+ 
 .filtro-carros {
     background-color: #121212 !important;
     color: #fff !important;
@@ -321,10 +323,55 @@ header {
     padding: 10px;
     margin-top: 20px;
 }
-
+ 
 .container-logo {
     padding: 20px;
     background-color: var(--black);
     display: flex;
     justify-content: center;
+}
+ 
+/* dashboard */
+ 
+.painel-frota {
+    background-color: #121212 !important;
+    color: #fff !important;
+    border: 2px solid #fd5151 !important;
+    border-radius: 10px;
+    overflow: hidden;
+}
+ 
+.painel-frota .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #6b7280;
+    font-weight: 600;
+}
+ 
+.painel-frota .stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -.02em;
+    margin-top: 8px;
+}
+
+.painel-frota table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.painel-frota td {
+    vertical-align: middle;
+}
+ 
+.painel-frota .muted-cell { color: #6b7280; }
+
+.mensagem {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: auto;
 }

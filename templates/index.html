@@ -31,6 +31,16 @@
 
     <!-- alugar carros -->
     <div class="row row-cols-1 row-cols-md-4 g-4 my-2 distancia-cards">
+      <!--- mensagens de erro -->
+      {% if request.args.get('erro') == 'ja_alugado' %}
+        <p class="mensagem text-danger border border-danger bg-dark p-3 rounded">Você já possui um carro alugado</p>
+      {% elif request.args.get('erro') == 'indisponivel' %}
+        <p class="mensagem text-danger border border-danger bg-dark p-3 rounded">Esse carro não está disponível</p>
+      {% elif request.args.get('erro') == 'login' %}
+        <p class="mensagem text-danger border border-danger bg-dark p-3 rounded">Você precisa estar logado</p>
+      {% elif request.args.get('sucesso') == 'alugado' %}
+        <p class="mensagem text-success border border-success bg-dark p-3 roundeds">Carro alugado com sucesso</p>
+      {% endif %}
       {% for carro in carros %}
         {% if loop.index <= 4 %}
         <div class="col">
@@ -43,7 +53,7 @@
                 <h5 class="card-title">{{ carro['marca'] }}</h5>
                 <p class="card-text">{{ carro['descricao'] }}</p>
               </div>
-              <a href="#" class="btn btn-danger">Quero alugar</a>
+              <a href="/alugar/{{ carro['id'] }}" class="btn btn-danger">Quero alugar</a>
             </div>
           </div>
         </div>

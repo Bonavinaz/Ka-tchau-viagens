@@ -41,7 +41,17 @@
                 <h5 class="card-title">{{ carro['marca'] }}</h5>
                 <p class="card-text">{{ carro['descricao'] }}</p>
               </div>
-              <a href="#" class="btn btn-danger">Quero alugar</a>
+              <a href="/alugar/{{ carro['id'] }}" class="btn btn-danger">Quero alugar</a>
+              {% if request.args.get('erro') == 'ja_alugado' %}
+                <p class="position-sticky text-danger">Você já possui um carro alugado!</p>
+              {% elif request.args.get('erro') == 'indisponivel' %}
+                <p class="position-sticky text-danger">Esse carro não está disponível!</p>
+              {% elif request.args.get('sucesso') == 'alugado' %}
+                <p class="position-sticky text-success">Carro alugado com sucesso!</p>
+              {% elif %}
+              {% if request.args.get('erro') == 'login' %}
+                <p class="position-sticky text-danger">Você precisa estar logado para alugar!</p>
+              {% endif %}
             </div>
           </div>
         </div>
