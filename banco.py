@@ -31,7 +31,9 @@ cursor.execute("""
     CREATE TABLE IF NOT EXISTS alugueis (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         carro_id INTEGER,
-        usuario_id INTEGER
+        usuario_id INTEGER,
+        data_inicio TEXT DEFAULT (datetime('now')),
+        data_fim TEXT DEFAULT NULL
     )
 """)
 

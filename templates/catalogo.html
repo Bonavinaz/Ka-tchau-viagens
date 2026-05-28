@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% block conteudo %}
-  <div class="search-logo">
-      <div class="text-center my-4">
-        <h1>Catálogo de Carros</h1>
-        <p>Encontre o carro perfeito para sua próxima viagem!</p>
-      </div>
-      </div>
-  </div>
+      {% if request.args.get('erro') == 'ja_alugado' %}
+        <p class="mensagem text-danger border border-danger bg-dark p-3 rounded">Você já possui um carro alugado</p>
+      {% elif request.args.get('erro') == 'indisponivel' %}
+        <p class="mensagem text-danger border border-danger bg-dark p-3 rounded">Esse carro não está disponível</p>
+      {% elif request.args.get('erro') == 'login' %}
+        <p class="mensagem text-danger border border-danger bg-dark p-3 rounded">Você precisa estar logado</p>
+      {% elif request.args.get('sucesso') == 'alugado' %}
+        <p class="mensagem text-success border border-success bg-dark p-3 roundeds">Carro alugado com sucesso</p>
+      {% endif %}
     <div class="px-3">
       <form action="/catalogo" method="GET">
         <select class="filtro-carros form-select mx-auto" name="categoria" onchange="this.form.submit()">
@@ -42,16 +44,6 @@
                 <p class="card-text">{{ carro['descricao'] }}</p>
               </div>
               <a href="/alugar/{{ carro['id'] }}" class="btn btn-danger">Quero alugar</a>
-              {% if request.args.get('erro') == 'ja_alugado' %}
-                <p class="position-sticky text-danger">Você já possui um carro alugado!</p>
-              {% elif request.args.get('erro') == 'indisponivel' %}
-                <p class="position-sticky text-danger">Esse carro não está disponível!</p>
-              {% elif request.args.get('sucesso') == 'alugado' %}
-                <p class="position-sticky text-success">Carro alugado com sucesso!</p>
-              {% elif %}
-              {% if request.args.get('erro') == 'login' %}
-                <p class="position-sticky text-danger">Você precisa estar logado para alugar!</p>
-              {% endif %}
             </div>
           </div>
         </div>

@@ -21,9 +21,9 @@
         <!-- login -->
         <!-- logado -->
         {% if session.get('usuario_id') %}
-          <h2>logado</h2>
-        <!-- não logado -->
+          <a href="/perfil" class="btn-login btn btn-outline-dark" style="width:auto;">Perfil</a>
         {% else %}
+        <!-- não logado -->
         <button class="btn-login btn btn-outline-dark" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
         <div id="id01" class="modal"> 
           <form class="bg-dark p-5 rounded-4 text-white" action="/login" method="POST">
@@ -60,6 +60,10 @@
             }
           }
         </script>
+        {% endif %}
+        <!-- dashboard -->
+        {% if session.get('usuario_tipo') == 'admin' %}
+          <a href="/dashboard" class="btn-login btn btn-outline-dark ms-3" style="width:auto;">Dashboard</a>
         {% endif %}
       </div>
     </header>

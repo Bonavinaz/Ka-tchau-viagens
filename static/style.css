@@ -333,9 +333,16 @@ header {
  
 /* dashboard */
  
+.painel-frota div,
+.painel-frota p,
+.painel-frota th,
+.painel-frota td {
+    color: #fff;
+}
+
 .painel-frota {
     background-color: #121212 !important;
-    color: #fff !important;
+    color: #fff;
     border: 2px solid #fd5151 !important;
     border-radius: 10px;
     overflow: hidden;
@@ -345,7 +352,6 @@ header {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: .06em;
-    color: #6b7280;
     font-weight: 600;
 }
  
@@ -364,8 +370,6 @@ header {
 .painel-frota td {
     vertical-align: middle;
 }
- 
-.painel-frota .muted-cell { color: #6b7280; }
 
 .mensagem {
     position: fixed;

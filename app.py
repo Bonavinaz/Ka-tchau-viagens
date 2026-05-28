@@ -123,10 +123,11 @@ def dashboard():
         SELECT carros.marca, carros.ano, carros.preco_dia,
             carros.disponivel, usuarios.nome
         FROM carros
-        LEFT JOIN alugueis ON carros.id = alugueis.carro_id
+        LEFT JOIN alugueis ON carros.id = alugueis.carro_id AND alugueis.data_fim IS NULL
         LEFT JOIN usuarios ON usuarios.id = alugueis.usuario_id
+        GROUP BY carros.id
     """).fetchall()
-
+    
     conn.close()
     return render_template("dashboard.html",
         total=total,
@@ -145,7 +146,7 @@ def alugar(carro_id):
     
     # verifica se já tem um carro alugado
     aluguel_ativo = conn.execute("""
-        SELECT * FROM alugueis WHERE usuario_id = ?
+        SELECT * FROM alugueis WHERE usuario_id = ? AND data_fim IS NULL
     """, (session["usuario_id"],)).fetchone()
     
     if aluguel_ativo:
@@ -167,6 +168,59 @@ def alugar(carro_id):
     conn.close()
     
     return redirect("/catalogo?sucesso=alugado")
+
+@app.route("/perfil")
+def perfil():
+    if not session.get("usuario_id"):
+        return redirect("/?erro=login")
+    
+    conn = get_db()
+    
+    usuario = conn.execute(
+        "SELECT * FROM usuarios WHERE id = ?", (session["usuario_id"],)
+    ).fetchone()
+    
+    carro_atual = conn.execute("""
+        SELECT carros.id, carros.marca FROM alugueis
+        JOIN carros ON carros.id = alugueis.carro_id
+        WHERE alugueis.usuario_id = ? AND alugueis.data_fim IS NULL
+    """, (session["usuario_id"],)).fetchone()
+    
+    historico = conn.execute("""
+        SELECT carros.marca, carros.ano, alugueis.data_inicio, alugueis.data_fim
+        FROM alugueis
+        JOIN carros ON carros.id = alugueis.carro_id
+        WHERE alugueis.usuario_id = ?
+        ORDER BY alugueis.id DESC
+    """, (session["usuario_id"],)).fetchall()
+        
+    conn.close()
+    return render_template("perfil.html",
+        usuario=usuario,
+        carro_atual=carro_atual,
+        historico=historico
+    )
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
+
+@app.route("/devolver/<int:carro_id>")
+def devolver(carro_id):
+    if not session.get("usuario_id"):
+        return redirect("/?erro=login")
+    
+    conn = get_db()
+    conn.execute("""
+        UPDATE alugueis SET data_fim = datetime('now') 
+        WHERE carro_id = ? AND usuario_id = ?
+    """, (carro_id, session["usuario_id"]))
+    conn.execute("UPDATE carros SET disponivel = 1 WHERE id = ?", (carro_id,))
+    conn.commit()
+    conn.close()
+    
+    return redirect("/perfil")
 
 if __name__ == "__main__":
     app.run(debug=True)
