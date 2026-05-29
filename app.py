@@ -222,5 +222,11 @@ def devolver(carro_id):
     
     return redirect("/perfil")
 
+@app.route("/termos")
+def termos():
+    conn = get_db()
+    conn.close()
+    return render_template("termos.html")
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -31,14 +31,14 @@
         <h2 class="ms-3 mt-4">Nenhum carro encontrado...</h2>
       {% endif %}
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 mb-5 distancia-cards">
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-2 mb-5 distancia-cards">
     {% for carro in carros %}
       <div class="col">
           <div class="card h-100 custom-card">
             <div class="card-imagem">
               <img src="{{ url_for('static', filename='imagens/' + carro['imagem']) }}" class="w-100" alt="{{ carro['marca'] }}">
             </div>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column justify-content-between align-items-start">
               <div class="mb-2">
                 <h5 class="card-title">{{ carro['marca'] }}</h5>
                 <p class="card-text">{{ carro['descricao'] }}</p>
