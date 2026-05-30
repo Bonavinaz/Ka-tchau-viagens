@@ -106,6 +106,10 @@ header {
     transform: scaleX(-1);
     padding-bottom: 20px;
 }
+
+.katchau-cadastro {
+    bottom: 180px;
+}
  
 .carousel-item {
     background: transparent !important;
