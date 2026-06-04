@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block conteudo %}
+  <section class="cadastro-background">
+  <div class="container py-5" style="max-width: 800px">
+      <div class="bg-dark p-5 rounded-4 text-white" style="max-width: 1000px; width: 100%;">
+      <h2 class="mb-4">Cadastro</h2>
+  <form class="row g-3 mb-0" action="/cadastro" method="POST">
+    <div class="col-md-6">
+      <label class="form-label border-danger">Nome Completo</label>
+      <input type="text" class="form-control border-danger" name="nome">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label border-danger">Nome de Usuario</label>
+      <input type="text" class="form-control border-danger" name="usuario">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label border-danger">Senha</label>
+      <input type="password" class="form-control border-danger" name="senha">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label border-danger">Confirme Senha</label>
+      <input type="password" class="form-control border-danger" name="confirma_senha">
+    </div>
+    <div class="col-12">
+      <label class="form-label border-danger">Email</label>
+      <input type="email" class="form-control border-danger" name="email">
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" required>
+        <label class="form-check-label">
+          Concordo com os <a href="/termos" target="_blank">termos e condições</a>
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-danger">Cadastrar</button>
+    </div>
+    {% if erro %}
+      <p class="mt-3 mb-0 fw-bold text-danger">{{ erro }}</p>
+    {% endif %}
+    {% if request.args.get('sucesso') %}
+      <p class="mt-3 mb-0 fw-bold text-success">Cadastro realizado com sucesso!</p>
+    {% endif %}
+  </form>
+  </div>
+  </div>
+  <img class="katchau" src="{{ url_for('static', filename='imagens/katchau.png') }}" alt="">
+  </section>
+{% endblock %}

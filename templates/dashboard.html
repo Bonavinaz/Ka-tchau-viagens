@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<div class="container painel-frota p-4 my-4" style="max-width:1120px">
+
+  <!-- Status -->
+  <div class="row g-3 mb-3">
+    <div class="col-6 col-md-3">
+      <div class="card bg-dark h-100 border border-danger rounded-3 p-3">
+        <div class="stat-label">Veículos na frota</div>
+        <div class="stat-value">{{ total }}</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card bg-dark h-100 border border-danger rounded-3 p-3">
+        <div class="stat-label">Alugados</div>
+        <div class="stat-value text-success">{{ alugados }}</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card bg-dark h-100 border border-danger rounded-3 p-3">
+        <div class="stat-label">Disponíveis</div>
+        <div class="stat-value text-primary">{{ disponiveis }}</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card bg-dark h-100 border border-danger rounded-3 p-3">
+        <div class="stat-label">Receita diária</div>
+        <div class="stat-value">R$ {{ receita_total }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card border border-danger bg-dark rounded-3 p-3 mb-3">
+    <div class="p-3 border-bottom border-danger">
+      <h1 class="fs-7 fw-semibold mb-0">Frota</h2>
+      <p class="small mb-0">Status atual de cada veículo</p>
+    </div>
+  </div>
+
+  <!-- Tabela -->
+  <div class="card border border-danger rounded-3 overflow-hidden">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr class="border-danger">
+            <th class="bg-dark">Marca/Modelo</th>
+            <th class="bg-dark">Ano</th>
+            <th class="bg-dark">Diária</th>
+            <th class="bg-dark">Cliente</th>
+            <th class="bg-dark">Status</th>
+          </tr>
+        </thead>
+        <tbody class="border-danger">
+          {% for carro in alugueis %}
+            <tr>
+              <td class="bg-dark"><strong>{{ carro['marca'][:22] ~ '...' if carro['marca'] and carro['marca']|length > 15 else carro['marca'] or 'Sem cliente' }}</strong></td>
+              <td class="bg-dark">{{ carro['ano'] }}</td>
+              <td class="bg-dark">{{ carro['preco_dia'] }}</td>
+              <td class="bg-dark">{{ carro['nome'][:15] ~ '...' if carro['nome'] and carro['nome']|length > 15 else carro['nome'] or 'Sem cliente' }}</td>
+              {% if carro['disponivel'] == 0 %}
+                <td class="bg-dark"><span class="badge rounded-pill text-bg-success">🔑 Alugado</span></td>
+              {% else %}
+                <td class="bg-dark"><span class="badge rounded-pill text-bg-danger">✅ Disponível</span></td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
