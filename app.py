@@ -13,7 +13,23 @@ def get_db():
 @app.route("/")
 def index():
     conn = get_db()
-    carros = conn.execute("SELECT * FROM carros").fetchall()
+    q = request.args.get("q", "")
+    categoria = request.args.get("categoria", "")
+    
+    if q and categoria:
+        carros = conn.execute(
+            "SELECT * FROM carros WHERE marca LIKE ? AND categoria LIKE ?", (f"%{q}%", f"%{categoria}%")
+        ).fetchall()
+    elif q:
+        carros = conn.execute(
+            "SELECT * FROM carros WHERE marca LIKE ?", (f"%{q}%",)
+        ).fetchall()
+    elif categoria:
+        carros = conn.execute(
+            "SELECT * FROM carros WHERE categoria LIKE ?", (f"%{categoria}%",)
+        ).fetchall()
+    else:
+        carros = conn.execute("SELECT * FROM carros").fetchall()
     conn.close()
     return render_template("index.html", carros=carros)
 

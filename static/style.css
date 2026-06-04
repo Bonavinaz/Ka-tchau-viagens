@@ -106,10 +106,6 @@ header {
     transform: scaleX(-1);
     padding-bottom: 20px;
 }
-
-.katchau-cadastro {
-    bottom: 180px;
-}
  
 .carousel-item {
     background: transparent !important;
@@ -382,4 +378,51 @@ header {
     transform: translateX(-50%);
     z-index: 9999;
     width: auto;
+}
+
+
+/* ALUGUÉIS DO MÊS - adicionado sem alterar estilos originais */
+.alugueis-mes {
+    padding: 20px 6%;
+}
+
+.alugueis-mes-titulo {
+    text-align: center;
+    color: #fd5151;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 45px;
+}
+
+.categoria-aluguel {
+    margin-bottom: 48px;
+}
+
+.categoria-aluguel h3 {
+    color: #fd5151;
+    font-weight: bold;
+    border-left: 5px solid #fd5151;
+    padding-left: 18px;
+    margin-bottom: 22px;
+}
+
+.alugueis-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.aluguel-card-destaque {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aluguel-card-destaque:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 18px rgba(253, 81, 81, 0.35);
+}
+
+@media (max-width: 768px) {
+    .alugueis-grid {
+        grid-template-columns: 1fr;
+    }
 }
